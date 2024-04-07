@@ -9,7 +9,7 @@ import { Button } from 'flowbite-react/components/Button'
 
 const Header = () => {
   return (
-    <Navbar className="fluid rounded border-b-2">
+    <Navbar className="fluid rounded border-b-2 flex items-center justify-between">
       <Link to="/" className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
         <span className='py-1 px-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>PHILOSOPHY</span>GURU
       </Link>
@@ -23,7 +23,7 @@ const Header = () => {
       <Button className='w-10 h-8 lg:hidden items-center justify-center' color={"gray"} >
         <AiOutlineSearch />
       </Button>
-      <div className='flex gap-4 md:order-2'>
+      <div className='flex gap-2 md:order-2'>
         <Button className=' items-center justify-center  w-12 h-10 hidden sm:inline' color={'gray'} pill>
           <FaMoon className="h-4 w-4"/>
         </Button>
