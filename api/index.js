@@ -26,5 +26,9 @@ app.listen(3000, ()=>{
 })
 
 
+// test api
 
+app.get('/test', (req, res)=>{
+  res.json({message: 'API is working'})
+})
 
