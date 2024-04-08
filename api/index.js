@@ -2,6 +2,9 @@ import { error } from 'console'
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+// @ts-ignore
+import useRoutes from './routes/user.routes.js'
+
 
 dotenv.config()
 
@@ -26,9 +29,6 @@ app.listen(3000, ()=>{
 })
 
 
-// test api
-
-app.get('/test', (req, res)=>{
-  res.json({message: 'API is working'})
-})
+// app test
+app.use('/api/user', useRoutes)
 
