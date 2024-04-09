@@ -32,20 +32,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
 
 
-//app.use(express.urlencoded({ extended: true }));
-//app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: true }));
-
-
-
-
 app.listen(3000, ()=>{
     console.log('server started on port 3000')
 })
-
 
 
 // app test
 app.use('/api/user', useRoutes)
 app.use('/api/auth', authRoutes)
 
+// a middleware
+
+app.use((err, req, res, next) =>{
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'Internal server error'
+    res.status(statusCode).json({
+        success: false,
+        statusCode,
+        message
+    })
+})
