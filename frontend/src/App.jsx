@@ -6,6 +6,8 @@ import Dashboard from "./pages/Dashboard"
 import About from "./pages/About"
 import Projects from "./pages/Projects"
 import Header from "./components/Header"
+import FooterComponent from "./components/Footer"
+import React from "react"
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
         <Route path="about" element={<About />} />
         <Route path="projects" element={<Projects />} />
       </Routes>
+      <FooterComponent />
     </BrowserRouter>
   )
 }
