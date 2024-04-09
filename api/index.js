@@ -32,6 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
 
 
+
 app.listen(3000, ()=>{
     console.log('server started on port 3000')
 })
@@ -40,6 +41,8 @@ app.listen(3000, ()=>{
 // app test
 app.use('/api/user', useRoutes)
 app.use('/api/auth', authRoutes)
+
+
 
 // a middleware
 
