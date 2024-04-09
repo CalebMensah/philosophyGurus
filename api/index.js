@@ -4,9 +4,13 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 // @ts-ignore
 import useRoutes from './routes/user.routes.js'
+import authRoutes from './routes/auth.route.js'
+import bodyParser from 'body-parser'
 
 
 dotenv.config()
+
+
 
 
 
@@ -24,11 +28,24 @@ mongoose.connect(process.env.MONGO)
 //create the server
 const app = express()
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}))
+
+
+//app.use(express.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
+
 app.listen(3000, ()=>{
     console.log('server started on port 3000')
 })
 
 
+
 // app test
 app.use('/api/user', useRoutes)
+app.use('/api/auth', authRoutes)
 
