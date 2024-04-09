@@ -1,8 +1,13 @@
 import { Button, Label, TextInput } from "flowbite-react"
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 
 const SignUp = () => {
+  const [formData, setFormData] = useState({})
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.id]: e.target.value})
+    }
+    console.log(formData)
   return (
     <div  className="min-h-screen mt-20">
     <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-16">
@@ -19,15 +24,15 @@ const SignUp = () => {
         <form className="flex flex-col gap-4">
           <div>
             <Label value='Your username' />
-            <TextInput type='text' placeholder='Username' id='username' required/>
+            <TextInput type='text' placeholder='Username' id='username' onChange={handleChange} />
           </div>
           <div>
             <Label value='Your email' />
-            <TextInput type='text' placeholder='email@company.com' id='email' required/>
+            <TextInput type='email' placeholder='email@company.com' id='email' onChange={handleChange} />
           </div>
           <div>
             <Label value='Your password' />
-            <TextInput type='text' placeholder='Password' id='password' required className="w-full"/>
+            <TextInput type='password' placeholder='Password' id='password'  className="w-full" onChange={handleChange}/>
           </div>
           <Button className="bg-gradient-to-r from-purple-400 via-violet-600 to-pink-500 p-3" type="submit">Sign Up</Button>
         </form>
